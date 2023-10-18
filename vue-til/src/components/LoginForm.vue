@@ -29,8 +29,8 @@
 </template>
 
 <script>
-// import { saveUserToCookie, saveAuthToCookie } from '@/utils/cookies';
-// import { loginUser } from '@/api/index';
+import { saveUserToCookie, saveAuthToCookie } from '@/utils/cookies';
+import { loginUser } from '@/api/index';
 import { validateEmail } from '@/utils/validation';
 
 export default {
@@ -56,12 +56,12 @@ export default {
           username: this.username,
           password: this.password,
         };
-        await this.$store.dispatch('LOGIN', userData);
-        // const { data } = await loginUser(userData);
-        // this.$store.commit('setToken', data.token);
-        // this.$store.commit('setUsername', data.user.username);
-        // saveAuthToCookie(data.token);
-        // saveUserToCookie(data.user.username);
+        // await this.$store.dispatch('LOGIN', userData);
+        const { data } = await loginUser(userData);
+        this.$store.commit('setToken', data.token);
+        this.$store.commit('setUsername', data.user.username);
+        saveAuthToCookie(data.token);
+        saveUserToCookie(data.user.username);
         this.$router.push('/main');
       } catch (error) {
         // 에러 핸들링할 코드
