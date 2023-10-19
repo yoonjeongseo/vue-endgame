@@ -20,11 +20,11 @@ export default {
       require: true,
     },
   },
-  filters: {
-    formatDate(value) {
-      return new Date(value);
-    },
-  },
+  // filters: {
+  //   formatDate(value) {
+  //     return new Date(value);
+  //   },
+  // },
   methods: {
     async deleteItem() {
       if (confirm('you want to delete it?')) {
