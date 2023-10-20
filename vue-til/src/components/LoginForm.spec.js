@@ -15,4 +15,6 @@ describe('LoginForm.vue', () => {
     const warningTxt = wrapper.find('.warning');
     expect(warningTxt.exists()).toBeTruthy();
   });
+
+  test('아이디와 패스워드가 입력되지 않으면 로그인 버튼이 비활성화 된다', () => {});
 });
